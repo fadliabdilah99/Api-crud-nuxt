@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\konten;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
 
@@ -12,7 +14,9 @@ class kontenController extends Controller
 
     public function index()
     {
-        Log::info('index');
+        
+        Log::info(Auth::user());
+        
         return  konten::all();
     }
 
